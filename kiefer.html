@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loukasec | Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background Glow Effect -->
+    <div class="site-bg"></div>
+    <div class="bg-glow"></div>
+
+    <!-- Intro Screen ("Click to Enter") -->
+    <div class="intro" id="introScreen">
+        <div class="intro-content">
+            <h2>Click anywhere to enter</h2>
+        </div>
+    </div>
+
+    <!-- Main Card Container -->
+    <main class="stage">
+        <div class="card" id="card">
+            <div class="card-glow"></div>
+            
+            <div class="card-inner">
+                <!-- Avatar & Status -->
+                <div class="avatar-wrap">
+                    <img id="avatarImg" class="avatar" src="c:\Users\User\Downloads\cute.jpg">
+                    <span class="status-badge-dot"></span>
+                </div>
+
+                <!-- Username & Tagline -->
+                <h1 class="username">Louka</h1>
+                <p class="tagline">
+                    <span id="taglineText">System Developer & Gamer</span><span class="tagline-cursor">|</span>
+                </p>
+
+                <!-- Music Player Widget -->
+                <div class="now-playing" id="nowPlaying">
+                    <div class="music-top">
+                        <img class="np-art" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=100&q=80" alt="Album Art">
+                        <div class="np-info">
+                            <p class="np-title">Sugar Crush</p>
+                            <p class="np-artist">Audio</p>
+                        </div>
+                        <button class="np-play-btn" id="npPlayBtn">
+                            ▶
+                        </button>
+                    </div>
+                </div>
+                <!-- Ilagay ang audio file mo dito (mp3) -->
+                <audio id="bgAudio" loop src="c:\Users\User\Downloads\HELLMERRY - Summer Crush (Official Music Video).mp3"></audio>
+
+                <!-- Discord Server Card -->
+                    <a class="server-card" href="https://discord.gg/wup6xmS4k" target="_blank">
+                        <img src="c:\Users\User\Downloads\arza (1).webp">
+                        <div class="server-info">
+                           <p class="server-name">Arza WRLD</p>
+                           <p class="server-tag">Discord Server</p>
+                        </div>
+                    </a>
+                <!-- Custom Links -->
+                <div class="links">
+                    <a href="https://github.com" target="_blank" class="link-btn">GitHub</a>
+                    <a href="https://open.spotify.com/user/31po3cpjmv3usj5e7raokh45tdri" target="_blank" class="link-btn">Spotify</a>
+                    <a href="https://www.instagram.com/ccc.crj/" target="_blank" class="link-btn">Instagram</a>
+                    <a href="https://kick.com/kiefyyr" target="_blank" class="link-btn">Kick</a>
+                    <a href="https://www.tiktok.com/@knoxx.exe" target="_blank" class="link-btn">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

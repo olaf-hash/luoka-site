@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+    color: #b875cc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background */
+.site-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, s#682ca3 0%, #4a154b 35%, #7b2cbf 70%, #9d4edd 100%);
+    z-index: -2;
+}
+
+.bg-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(218, 109, 245, 0.25);
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: floatGlow 8s ease-in-out infinite alternate;
+}
+
+/* Intro Screen (Click to Enter) */
+.intro {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+}
+
+.intro-content h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #94a3b8;
+    animation: pulse 2s infinite;
+}
+
+@keyframes floatGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(1) translate(-50px, -30px);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2) translate(50px, 40px);
+    }
+}
+
+/* Main Profile Card */
+.stage {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(26, 31, 53, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 30px rgba(157, 78, 221, 0.15); /* Purple ambient glow */
+    position: relative;
+    overflow: hidden; /* Contains the light reflection effect */
+    
+    /* 3D Tilt properties */
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+/* Moving light sheen effect across the card */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+    );
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    left: 100%;
+    transition: 0.7s ease-in-out;
+}
+
+/* Avatar */
+.avatar-wrap {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 15px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-badge-dot {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: #22c55e;
+    border: 2px solid #1a1f35;
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 25px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.tagline-cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Now Playing Music Widget */
+.now-playing {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.music-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.np-art {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.np-info {
+    text-align: left;
+    margin-left: 12px;
+    flex-grow: 1;
+}
+
+.np-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.np-artist {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.np-play-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 8px;
+}
+
+/* Discord Server Card */
+.server-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    background: rgba(26, 31, 53, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.server-card:hover {
+    background: rgba(26, 31, 53, 0.7);
+    border-color: rgba(157, 78, 221, 0.4);
+}
+
+.server-icon-placeholder {
+    font-size: 1.5rem;
+    background: #000000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.server-info {
+    margin-left: 12px;
+    text-align: left;
+}
+
+.server-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.server-tag {
+    font-size: 0.75rem;
+    color: #000000;
+}
+
+/* Custom Links Buttons */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.link-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
