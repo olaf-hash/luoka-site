@@ -70,7 +70,7 @@ body {
 /* Main Profile Card */
 .stage {
     width: 100%;
-    max-width: 420px;
+    max-width: 460px;
     padding: 20px;
 }
 
@@ -89,8 +89,8 @@ body {
     
     /* 3D Tilt properties */
     transform-style: preserve-3d;
-    transform: perspective(1000px);
-    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    transform: perspective(1200px);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), ease-out, box-shadow 0.5s ease;
     will-change: transform;
 }
 
@@ -111,7 +111,6 @@ body {
     transition: 0.5s;
     pointer-events: none;
 }
-
 .card:hover::before {
     left: 100%;
     transition: 0.7s ease-in-out;
@@ -316,7 +315,7 @@ body {
     100% { transform: scale(0.95); opacity: 0.8; }
 }
 .card {
-    position: relative;
+    position: relative; /* Required for absolute positioning of IDLE badge */
     overflow: hidden;
 }
 .card-glow {
